@@ -3,7 +3,7 @@ package me.aribon.base.android.view;
 import android.content.Context;
 
 import me.aribon.base.android.base.BaseFragment;
-import me.aribon.base.android.presenter.AndroidMvpPresenter;
+import me.aribon.base.android.presenter.AndroidPresenter;
 import me.aribon.base.exeption.PresenterInitializationException;
 
 /**
@@ -11,18 +11,18 @@ import me.aribon.base.exeption.PresenterInitializationException;
  * @Date: 24/03/2018
  */
 
-public abstract class BaseAndroidMvpFragment<P extends AndroidMvpPresenter> extends BaseFragment
-    implements AndroidMvpView<P> {
+public abstract class BaseAndroidFragment<P extends AndroidPresenter> extends BaseFragment
+    implements AndroidView<P> {
 
   private P mPresenter;
 
   @Override
-  public void setMvpPresenter(P mvpPresenter) {
-    this.mPresenter = mvpPresenter;
+  public void setPresenter(P presenter) {
+    this.mPresenter = presenter;
   }
 
   @Override
-  public P getMvpPresenter() {
+  public P getPresenter() {
     return mPresenter;
   }
 
@@ -41,7 +41,7 @@ public abstract class BaseAndroidMvpFragment<P extends AndroidMvpPresenter> exte
 
   @Override
   public void onDetach() {
-    mPresenter.detachMvpView();
+    mPresenter.detachView();
     super.onDetach();
   }
 }

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import me.aribon.base.android.base.BaseActivity;
-import me.aribon.base.android.presenter.AndroidMvpPresenter;
+import me.aribon.base.android.presenter.AndroidPresenter;
 import me.aribon.base.exeption.PresenterInitializationException;
 
 /**
@@ -12,18 +12,18 @@ import me.aribon.base.exeption.PresenterInitializationException;
  * @Date: 24/03/2018
  */
 
-public abstract class BaseAndroidMvpActivity<P extends AndroidMvpPresenter> extends BaseActivity
-    implements AndroidMvpView<P> {
+public abstract class BaseAndroidActivity<P extends AndroidPresenter> extends BaseActivity
+    implements AndroidView<P> {
 
   private P mPresenter;
 
   @Override
-  public void setMvpPresenter(P mvpPresenter) {
-    this.mPresenter = mvpPresenter;
+  public void setPresenter(P presenter) {
+    this.mPresenter = presenter;
   }
 
   @Override
-  public P getMvpPresenter() {
+  public P getPresenter() {
     return mPresenter;
   }
 
@@ -47,6 +47,6 @@ public abstract class BaseAndroidMvpActivity<P extends AndroidMvpPresenter> exte
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    mPresenter.detachMvpView();
+    mPresenter.detachView();
   }
 }
