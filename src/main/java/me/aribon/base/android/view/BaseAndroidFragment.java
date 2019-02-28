@@ -3,7 +3,7 @@ package me.aribon.base.android.view;
 import android.content.Context;
 
 import me.aribon.base.android.base.BaseFragment;
-import me.aribon.base.android.presenter.AndroidPresenter;
+import me.aribon.base.android.presenter.AndroidMvpPresenter;
 import me.aribon.base.exeption.PresenterInitializationException;
 
 /**
@@ -11,8 +11,8 @@ import me.aribon.base.exeption.PresenterInitializationException;
  * @Date: 24/03/2018
  */
 
-public abstract class BaseAndroidFragment<P extends AndroidPresenter> extends BaseFragment
-    implements AndroidView<P> {
+public abstract class BaseAndroidMvpFragment<P extends AndroidMvpPresenter> extends BaseFragment
+    implements AndroidMvpView<P> {
 
   private P mPresenter;
 

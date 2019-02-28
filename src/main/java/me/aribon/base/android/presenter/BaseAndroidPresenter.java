@@ -1,17 +1,17 @@
 package me.aribon.base.android.presenter;
 
-import me.aribon.base.android.view.AndroidView;
+import me.aribon.base.android.view.AndroidMvpView;
 
 /**
  * @Author: aribon
  * @Date: 24/03/2018
  */
 
-public class BaseAndroidPresenter<V extends AndroidView> implements AndroidPresenter<V> {
+public class BaseAndroidMvpPresenter<V extends AndroidMvpView> implements AndroidMvpPresenter<V> {
 
   private V view;
 
-  public BaseAndroidPresenter(V view) {
+  public BaseAndroidMvpPresenter(V view) {
     attachView(view);
   }
 
