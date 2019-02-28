@@ -9,6 +9,14 @@ import android.view.ViewGroup;
 
 public abstract class BaseFragment extends Fragment {
 
+  private BaseActivity parentActivity = null;
+
+  @Override
+  public void onAttach(Context context) {
+    super.onAttach(context);
+    this.parentActivity = (BaseActivity) context;
+  }
+
   @Nullable
   @Override
   public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -25,6 +33,10 @@ public abstract class BaseFragment extends Fragment {
   }
 
   public abstract int getLayoutResource();
+
+  public BaseActivity getParentActivity() {
+    return parentActivity;
+  }
 
   public void findView(View view) {
 
